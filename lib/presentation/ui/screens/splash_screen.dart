@@ -14,12 +14,21 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          children: [
-            SvgPicture.asset(AssetPaths.logoSvg),
-          ],
-        
-            ),
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Spacer(),
+              SvgPicture.asset(AssetPaths.logoSvg,width: 100,),
+              Spacer(),
+              CircularProgressIndicator(),
+              SizedBox(height: 16,),
+              Text("version 1.0.0")
+            ],
+
+              ),
+        ),
       ),);
   }
 }
