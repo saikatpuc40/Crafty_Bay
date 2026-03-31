@@ -1,4 +1,5 @@
 import 'package:crafty_bay/presentation/ui/screens/splash_screen.dart';
+import 'package:crafty_bay/presentation/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CraftyBayApp extends StatelessWidget {
@@ -8,6 +9,10 @@ class CraftyBayApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: SplashScreen(),
+      theme: ThemeData(
+        colorSchemeSeed: AppColors.themeColor,
+        scaffoldBackgroundColor: Colors.white,
+      ),
     );
   }
 }
