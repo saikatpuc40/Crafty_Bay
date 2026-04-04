@@ -1,3 +1,4 @@
+import 'package:crafty_bay/presentation/ui/widgets/app_logo_widget.dart';
 import 'package:flutter/material.dart';
 
 class EmailVerificationScreen extends StatefulWidget {
@@ -13,7 +14,16 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
     return Scaffold(
       body: Column(
         children: [
-
+          const SizedBox(height: 82,),
+          AppLogoWidget(),
+          const SizedBox(height: 16,),
+          Text("Welcome Back",style: Theme.of(context).textTheme.headlineLarge),
+          const SizedBox(height: 8,),
+          Text("Please Enter Your Email Address",style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+            color: Colors.grey
+          )),
+          const SizedBox(height: 16,),
+          TextFormField(),
         ],
       ),
     );
