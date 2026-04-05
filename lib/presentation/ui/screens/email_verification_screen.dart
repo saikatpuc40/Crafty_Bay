@@ -1,4 +1,4 @@
-import 'package:crafty_bay/presentation/ui/utilities/app_colors.dart';
+import 'package:crafty_bay/presentation/ui/screens/otp_verification_screen.dart';
 import 'package:crafty_bay/presentation/ui/widgets/app_logo_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +10,9 @@ class EmailVerificationScreen extends StatefulWidget {
 }
 
 class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
+
+  final TextEditingController _emailTEController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,18 +31,31 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
               )),
               const SizedBox(height: 16,),
               TextFormField(
+                controller: _emailTEController,
                 decoration: InputDecoration(
                   hintText: 'Email'
                 ),
               ),
               const SizedBox(height: 16,),
               ElevatedButton(
-                  onPressed: (){}, child: Text("Next")
+                  onPressed: (){
+                    _onTapNextButton();
+                  }, child: Text("Next")
               )
             ],
           ),
         ),
       ),
     );
+  }
+
+  void _onTapNextButton(){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const OtpVerificationScreen()));
+  }
+
+  @override
+  void dispose() {
+    _emailTEController.dispose();
+    super.dispose();
   }
 }
