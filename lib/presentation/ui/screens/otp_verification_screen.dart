@@ -1,3 +1,4 @@
+import 'package:crafty_bay/presentation/ui/utilities/app_colors.dart';
 import 'package:crafty_bay/presentation/ui/widgets/app_logo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -36,16 +37,40 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                   shape: MaterialPinShape.outlined,
                   borderRadius: BorderRadius.circular(8),
                   cellSize: const Size(40, 50),
-                  focusedBorderColor: Colors.blue,
-                  filledBorderColor: Colors.blue,
-                  borderColor: Colors.grey,
+                  focusedBorderColor: AppColors.themeColor,
+                  filledBorderColor: Colors.green,
+                  completeFillColor: Colors.transparent,
                 ),
                 pinController: _pinInputController,
               ),
               const SizedBox(height: 16,),
               ElevatedButton(
                   onPressed: (){}, child: Text("Next")
+              ),
+              const SizedBox(height: 16,),
+              RichText(text: TextSpan(
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  color: Colors.grey,
+                ),
+                text: "This code will expire in ",
+                children: [
+                  TextSpan(
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      color: AppColors.themeColor
+                    ),
+                    text: '120s'
+                  )
+                ]
+               ),),
+              const SizedBox(height: 16,),
+              TextButton(onPressed: (){}, child: Text("Resend Code",
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    color: Colors.grey,
+                  )
+                ),
               )
+
+
             ],
           ),
         ),
