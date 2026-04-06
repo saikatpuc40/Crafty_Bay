@@ -1,3 +1,4 @@
+import 'package:crafty_bay/presentation/ui/screens/completed_profile_screen.dart';
 import 'package:crafty_bay/presentation/ui/utilities/app_colors.dart';
 import 'package:crafty_bay/presentation/ui/widgets/app_logo_widget.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,9 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
               ),
               const SizedBox(height: 16,),
               ElevatedButton(
-                  onPressed: (){}, child: Text("Next")
+                  onPressed: (){
+                    _onTapNextButton();
+                  }, child: Text("Next")
               ),
               const SizedBox(height: 16,),
               RichText(text: TextSpan(
@@ -76,6 +79,10 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
         ),
       ),
     );
+  }
+
+  void _onTapNextButton(){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const CompletedProfileScreen()));
   }
 
   @override
