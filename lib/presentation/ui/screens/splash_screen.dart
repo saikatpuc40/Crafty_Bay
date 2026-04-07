@@ -1,4 +1,4 @@
-import 'package:crafty_bay/presentation/ui/screens/email_verification_screen.dart';
+import 'package:crafty_bay/presentation/ui/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import '../widgets/app_logo_widget.dart';
 
@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(const Duration(seconds: 3));
     if(mounted) {
       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
-          builder: (context) => const EmailVerificationScreen()), (
+          builder: (context) => const HomeScreen()), (
           route) => false);
     }
   }

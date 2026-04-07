@@ -19,7 +19,7 @@ class _CompletedProfileScreenState extends State<CompletedProfileScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 82,),
+              const SizedBox(height: 24,),
               AppLogoWidget(),
               const SizedBox(height: 16,),
               Text("Completed Profile",style: Theme.of(context).textTheme.headlineLarge),
@@ -61,8 +61,8 @@ class _CompletedProfileScreenState extends State<CompletedProfileScreen> {
               const SizedBox(height: 16,),
               ElevatedButton(
                   onPressed: (){
-                    _onTapNextButton();
-                  }, child: Text("Next")
+                    _onTapCompleteButton();
+                  }, child: Text("Complete")
               )
             ],
           ),
@@ -71,8 +71,8 @@ class _CompletedProfileScreenState extends State<CompletedProfileScreen> {
     );
   }
 
-  void _onTapNextButton(){
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const OtpVerificationScreen()));
+  void _onTapCompleteButton(){
+    // Navigator.push(context, MaterialPageRoute(builder: (context) => const OtpVerificationScreen()));
   }
 
   @override

@@ -8,6 +8,7 @@ class CraftyBayApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: SplashScreen(),
       theme: ThemeData(
         colorSchemeSeed: AppColors.themeColor,
@@ -28,6 +29,9 @@ class CraftyBayApp extends StatelessWidget {
           focusedBorder: _outlineInputBorder(),
           enabledBorder: _outlineInputBorder(),
           errorBorder: _outlineInputBorder(Colors.red),
+          hintStyle: TextStyle(
+            fontWeight: FontWeight.w400,
+          ),
           contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 8),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
