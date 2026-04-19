@@ -31,7 +31,16 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(height: 10,),
             HomeBannerSlider(),
             SizedBox(height: 10,),
-            _buildCategoriesSection()
+            _buildCategoriesSection(),
+            SizedBox(height: 10,),
+            SectionHeader(
+              title: "Popular",
+              onTap: (){},
+            ),
+            SizedBox(
+              height: 180,
+              child: _buildProductListView(),
+            )
           ],
         ),
       ),
@@ -47,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SizedBox(height: 10,),
               SizedBox(
-                height: 140,
+                height: 120,
                 child: _buildCategoryListView(),
               ),
             ],
@@ -56,26 +65,95 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildCategoryListView() {
     return ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemCount: 10,
-                  itemBuilder: (context,index){
-                  return Column(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          color: AppColors.themeColor.withValues(alpha:0.15),
-                          borderRadius: BorderRadius.circular(8)
+        scrollDirection: Axis.horizontal,
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return Column(
+            children: [
+              Container(
+                padding: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                    color: AppColors.themeColor.withValues(alpha: 0.15),
+                    borderRadius: BorderRadius.circular(8)
+                ),
+                child: Icon(
+                  Icons.computer, size: 48, color: AppColors.themeColor,),),
+              SizedBox(height: 8,),
+              Text('Electronics', style: TextStyle(
+                color: AppColors.themeColor,
+              ),)
+            ],
+          );
+        }, separatorBuilder: (_, _) => SizedBox(width: 10,));
+  }
+  Widget _buildProductListView() {
+    return ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return Card(
+            color: Colors.white,
+            child: SizedBox(
+              width: 120,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: 120,
+                    height: 100,
+                    padding: EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                        color: AppColors.themeColor.withValues(alpha: 0.15),
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(8),
+                          topLeft: Radius.circular(8)
                         ),
-                        child: Icon(Icons.computer,size: 48,color: AppColors.themeColor,),),
-                      SizedBox(height: 8,),
-                      Text('Electronics', style: TextStyle(
-                        color: AppColors.themeColor,
-                      ),)
-                    ],
-                  );
+                        image: DecorationImage(
+                            image: AssetImage(AssetPaths.shoeImage),
+                          fit: BoxFit.scaleDown
 
-              }, separatorBuilder: (_,_)=>SizedBox(width: 10,));
+                        )
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Product Name",maxLines: 1,style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black54
+                        ),),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('\$120'),
+                            Wrap(
+                              children: [
+                                Icon(Icons.star,color: Colors.amber,),
+                                Text('3'),
+                              ],
+                            ),
+                            Card(
+                              color: AppColors.themeColor,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(4)
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Icon(Icons.favorite_border_outlined,size: 16,color: Colors.white,),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          );
+        }, separatorBuilder: (_, _) => SizedBox(width: 10,));
   }
 
   AppBar _buildAppBar() {
