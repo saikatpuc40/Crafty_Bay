@@ -41,6 +41,9 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                   focusedBorderColor: AppColors.themeColor,
                   filledBorderColor: Colors.green,
                   completeFillColor: Colors.transparent,
+                  fillColor: Colors.white,
+                  focusedFillColor: Colors.white,
+                  filledFillColor: Colors.white,
                 ),
                 pinController: _pinInputController,
               ),
@@ -72,8 +75,6 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                   )
                 ),
               )
-
-
             ],
           ),
         ),

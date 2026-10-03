@@ -1,3 +1,4 @@
+import 'package:crafty_bay/presentation/ui/screens/category_list_screen.dart';
 import 'package:crafty_bay/presentation/ui/utilities/asset_paths.dart';
 import 'package:crafty_bay/presentation/ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -21,9 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               SizedBox(height: 10,),
-              SearchTextField(
-                textEditingController: TextEditingController(),
-              ),
+              SearchTextField(textEditingController: TextEditingController(),),
               SizedBox(height: 10,),
               HomeBannerSlider(),
               SizedBox(height: 10,),
@@ -34,6 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
               _buildNewProductsSection(),
               SizedBox(height: 10,),
               _buildSpecialProductsSection(),
+              SizedBox(height: 10,),
             ],
           ),
         ),
@@ -90,12 +90,14 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               SectionHeader(
                 title: "Categories",
-                onTap: (){},
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const CategoryListScreen()));
+                },
               ),
               SizedBox(height: 10,),
               SizedBox(
                 height: 120,
-                child: CategoryListView(),
+                child: HorizontalCategoryListView(),
               ),
             ],
           );
@@ -123,17 +125,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

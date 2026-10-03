@@ -11,8 +11,15 @@ class CraftyBayApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
       theme: ThemeData(
+
         colorSchemeSeed: AppColors.themeColor,
         scaffoldBackgroundColor: Colors.white,
+
+        progressIndicatorTheme: const ProgressIndicatorThemeData(
+          color: AppColors.themeColor,
+        ),
+
+
         textTheme: const TextTheme(
           headlineLarge:  TextStyle(
               fontSize: 32,
@@ -24,6 +31,8 @@ class CraftyBayApp extends StatelessWidget {
           //   color: Colors.grey,
           // )
         ),
+
+
         inputDecorationTheme: InputDecorationTheme(
           border: _outlineInputBorder(),
           focusedBorder: _outlineInputBorder(),
@@ -34,6 +43,7 @@ class CraftyBayApp extends StatelessWidget {
           ),
           contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 8),
         ),
+        
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.themeColor,
@@ -50,6 +60,8 @@ class CraftyBayApp extends StatelessWidget {
               )
           )
        ),
+
+        
         // textButtonTheme: TextButtonThemeData(
         //   style: TextButton.styleFrom(
         //     foregroundColor: AppColors.themeColor,
@@ -59,6 +71,17 @@ class CraftyBayApp extends StatelessWidget {
         //     )
         //   )
         // )
+
+
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.white,
+          titleTextStyle: TextStyle(
+            color: Colors.black54,
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+          ),
+
+        )
       )
     );
   }
